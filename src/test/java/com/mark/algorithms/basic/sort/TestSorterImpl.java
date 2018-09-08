@@ -7,7 +7,8 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
 
 /**
- * Created by Administrator on 2018/9/8 0008.
+ * @author: Mark Qin
+ * @date: 2018/9/8 0008.
  */
 
 @RunWith(MockitoJUnitRunner.class)
