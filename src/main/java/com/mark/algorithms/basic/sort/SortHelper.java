@@ -41,6 +41,21 @@ public class SortHelper {
         show(a);
     }
 
+    public static int partition(Comparable[] a, int low, int high) {
+        int i = low;
+        int j = high + 1;
+        Comparable key = a[i];
+        while (true) {
+            while (less(a[++i], key)) if( i >=  high) break;
+            while (less(key,a[--j])) if( j <= low) break;
+            if(i >= j) break;
+            exchange(a, i, j);
+        }
+        exchange(a, low, j);
+        show(a);
+        return j;
+    }
+
     public static boolean isSorted(Comparable[] a) {
         for(int i=1; i < a.length; i++) {
             if (less(a[i],a[i-1])) {
