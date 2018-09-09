@@ -18,6 +18,29 @@ public class SortHelper {
         }
     }
 
+    public static void merge(Comparable[] a, Comparable[] aux, int low, int middle, int high) {
+        show(a);
+        int i = low;
+        int j = middle + 1;
+        //copy from a to aux
+        for(int k = low; k <= high; k++) {
+            aux[k] = a[k];
+        }
+        show(aux);
+        for(int k= low; k <= high; k++) {
+            if(i > middle) {
+                a[k] = aux[j++];
+            }else if (j > high) {
+                a[k] = aux[i++];
+            }else if (less(aux[j], aux[i])) {
+                a[k] = aux[j++];
+            }else {
+                a[k] = aux[i++];
+            }
+        }
+        show(a);
+    }
+
     public static boolean isSorted(Comparable[] a) {
         for(int i=1; i < a.length; i++) {
             if (less(a[i],a[i-1])) {
@@ -28,8 +51,11 @@ public class SortHelper {
     }
 
     public static void show(Comparable[] a) {
+        StringBuilder sb = new StringBuilder();
         for(int i=0; i<a.length; i++) {
-            System.out.println(a[i] +" ");
+            sb.append(a[i] +" ");
+
         }
+        System.out.println(sb.toString());
     }
 }

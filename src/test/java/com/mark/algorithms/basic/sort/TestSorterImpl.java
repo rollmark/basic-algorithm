@@ -23,6 +23,9 @@ public class TestSorterImpl {
     @InjectMocks
     private ShellSorter shellSorter;
 
+    @InjectMocks
+    private MergerSorter mergerSorter;
+
     public String[] initData() {
         String[] a = new String[16];
         a[0] = "S";
@@ -62,6 +65,13 @@ public class TestSorterImpl {
     public void testShellSorter() {
         String [] a = initData();
         Assert.assertTrue(SortHelper.isSorted(shellSorter.sort(a)));
+        SortHelper.show(a);
+    }
+
+    @Test
+    public void testMergerSorter() {
+        String [] a = initData();
+        Assert.assertTrue(SortHelper.isSorted(mergerSorter.sort(a)));
         SortHelper.show(a);
     }
 }
